@@ -6,8 +6,11 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>@yield('title')</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <meta content="MAC, Macbuilders, Mac Builders" name="keywords">
+	<meta content="Macbuilders" property="og:title">
+	<meta content="Holdings, Construction Company, Quadruple AAAA, Building Construction, Road Construction" property="og:description">
+	<meta content="{{ asset('assets/img/logo/white-logos-mac-100x70.png') }}" property="og:image">
+	<meta content="https://macbuilders.com.ph/" property="og:url">
 
   <!-- Favicons -->
   <link href="{{ asset('assets/img/logo/white-logos-mac-100x70.png') }}" rel="icon">
