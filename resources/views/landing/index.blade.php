@@ -412,12 +412,12 @@
 
 					<div class="col-lg-4 col-md-6 portfolio-item filter-genNakar">
 						<div class="portfolio-wrap">
-							<img src="{{ asset('assets/img/portfolio/GenNakar/GenNakar-2.jpg') }}" class="img-fluid img-responsive " alt="">
+							<img src="{{ asset('assets/img/portfolio/GenNakar/GenNakar-2 copy.jpg') }}" class="img-fluid img-responsive " alt="">
 							<div class="portfolio-info">
 								<h4>General Nakar</h4>
 								<p>General Nakar</p>
 								<div class="portfolio-links">
-									<a href="{{ asset('assets/img/portfolio/GenNakar/GenNakar-2.jpg') }}" data-gallery="portfolioGallery"
+									<a href="{{ asset('assets/img/portfolio/GenNakar/GenNakar-2 copy.jpg') }}" data-gallery="portfolioGallery"
 										class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
 									<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
 								</div>
