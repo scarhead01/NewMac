@@ -194,30 +194,53 @@
   window.addEventListener('load', () => {
     let portfolioContainer = select('.portfolio-container');
     if (portfolioContainer) {
-      let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item',
-        layoutMode: 'fitRows'
-      });
-
-      let portfolioFilters = select('#portfolio-flters li', true);
-
-      on('click', '#portfolio-flters li', function(e) {
+    let portfolioIsotope = new Isotope(portfolioContainer, {
+    itemSelector: '.portfolio-item',
+    layoutMode: 'fitRows'
+    });
+  
+    let portfolioFilters = select('#portfolio-flters li', true);
+    let subportfolioFilters = select('#sub-portfolio-flters li', true);
+    
+    let selectedFilter1;
+    let selectedFilter2;
+    
+    function handleFilter(e) {
         e.preventDefault();
-        portfolioFilters.forEach(function(el) {
-          el.classList.remove('filter-active');
+        let filterContainer = select('#' + this.parentElement.id + ' li', true);
+        filterContainer.forEach(function (el) {
+            el.classList.remove('filter-active');
         });
         this.classList.add('filter-active');
-
+    
+        if (this.parentElement.id === "portfolio-flters") {
+            selectedFilter1 = this.getAttribute('data-filter');
+        } else {
+            selectedFilter2 = this.getAttribute('data-filter');
+        }
+        
+        if (selectedFilter1 === "*") {
+            selectedFilter1 = "";
+        }
+        if (selectedFilter2 === "*") {
+            selectedFilter2 = "";
+        }
+    
         portfolioIsotope.arrange({
-          filter: this.getAttribute('data-filter')
+            filter: selectedFilter1 + selectedFilter2
         });
-        portfolioIsotope.on('arrangeComplete', function() {
-          AOS.refresh()
+        portfolioIsotope.on('arrangeComplete', function () {
+            AOS.refresh()
         });
-      }, true);
     }
-
+    
+    on('click', '#portfolio-flters li', handleFilter, true);
+    on('click', '#sub-portfolio-flters li', handleFilter, true);
+    
+    
+    }
   });
+  
 
   /**
    * Initiate portfolio lightbox 
@@ -244,7 +267,7 @@
   });
 
   /**
-   * Testimonials slider
+   * Recognitions and Credentials slider
    */
   new Swiper('.testimonials-slider', {
     speed: 600,
@@ -266,7 +289,7 @@
       },
 
       1200: {
-        slidesPerView: 3,
+        slidesPerView: 2,
         spaceBetween: 20
       }
     }

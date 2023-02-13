@@ -30,6 +30,10 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/css/hiring.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/css/job-info.css') }}" rel="stylesheet">
+
+  
 </head>
 
 <body>
@@ -40,8 +44,8 @@
 <footer id="footer">
 
     <div class="footer-top">
-      <div class="container">
-        <div class="row">
+      <div class="container ">
+        <div class="row d-flex align-items-center justify-content-center">
 
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3>Macbuilders</h3>
@@ -53,7 +57,7 @@
             </p>
           </div>
 
-          <div class="col-lg-2 col-md-6 footer-links">
+          <div class="col-lg-3 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="{{ url('/'  ) }}">Home</a></li>
@@ -78,14 +82,14 @@
             </ul>
           </div>
 
-          <div class="col-lg-4 col-md-6 footer-newsletter">
+          <!-- <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Join Our Newsletter</h4>
             <p>Please subscribe to receive updates on our website</p>
             <form onsubmit=" return false;">
               <input type="email" name="email" id="email">
               <input type="submit" onclick="subscribe()" value="Subscribe">
             </form>
-          </div>
+          </div> -->
 
         </div>
       </div>

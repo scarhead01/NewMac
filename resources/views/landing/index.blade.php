@@ -1,9 +1,53 @@
 @extends('layout.main')
 @section('title', 'Home')
 @section('content')
-<section id="hero" class="d-flex align-items-center">
 
-    <div class="container" data-aos="zoom-out" data-aos-delay="100">
+
+<section id="hero">
+
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="{{ asset('assets/img/slider/mac1.png') }}" class="img-fluid"
+								alt=""></div>
+      <div class="swiper-slide"><img src="{{ asset('assets/img/slider/mac2.jpg') }}" class="img-fluid"
+								alt=""></div>
+      <div class="swiper-slide"><img src="{{ asset('assets/img/slider/mac3.jpg') }}" class="img-fluid"
+								alt=""></div>
+      <div class="swiper-slide"><img src="{{ asset('assets/img/slider/mac4.jpg') }}" class="img-fluid"
+								alt=""></div>
+      <div class="swiper-slide"><img src="{{ asset('assets/img/slider/mac5.jpg') }}" class="img-fluid"
+								alt=""></div>
+    </div>
+    <div class="swiper-button-next "></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 30,
+      centeredSlides: true,
+	  loop: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+  <div class="container" data-aos="zoom-out" data-aos-delay="100">
       <div class="row">
         <div class="col-xl-6">
           <h1>Quality construction and Efficient management</h1>
@@ -14,6 +58,8 @@
       </div>
     </div>
 
+
+
   </section><!-- End Hero -->
 	<main id="main">
 
@@ -21,7 +67,7 @@
 		<section id="clients" class="clients">
 			<div class="container" data-aos="zoom-in">
 
-				<div class="clients-slider swiper">
+				<div class="clients-slider">
 					<div class="swiper-wrapper align-items-center">
 						<div class="swiper-slide"><img src="{{ asset('assets/img/partners/partners-1.png') }}" class="img-fluid"
 								alt=""></div>
@@ -59,7 +105,7 @@
 						</div>
 					</div>
 					<div class="col-xl-7 d-flex align-items-stretch">
-						<img class="img-fluid img-responsive" src="{{ asset('assets/img/team/mac-team-1.jpg') }}" alt="">
+						<img class="img-fluid img-responsive" src="{{ asset('assets/img/about/about-us.jpg') }}" alt="">
 						{{-- <div class="icon-boxes d-flex flex-column justify-content-center">
               <div class="row">
                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
@@ -91,7 +137,7 @@
 		</section><!-- End About Section -->
 
 		<!-- ======= Counts Section ======= -->
-		<section id="counts" class="counts">
+		<!-- <section id="counts" class="counts">
 			<div class="container" data-aos="fade-up">
 
 				<div class="row">
@@ -135,7 +181,7 @@
 				</div>
 
 			</div>
-		</section><!-- End Counts Section -->
+		</section>End Counts Section -->
 
 		<!-- ======= Tabs Section ======= -->
 		<section id="tabs" class="tabs">
@@ -170,31 +216,64 @@
 
 				<div class="tab-content">
 					<div class="tab-pane active show" id="tab-1">
-						<div class="row">
-							<div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
+						<div class="affiliate_tab d-flex align-items-stretch">
+							<div data-aos="fade-up" data-aos-delay="100">
 								<h3>Our Affiliate Companies</h3>
 								{{-- <p class="fst-italic">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                   magna aliqua.
                 </p> --}}
-								<ul>
-									<li><i class="ri-check-double-line"></i> Octagon Concrete Solutions (OCS)</li>
-									<li><i class="ri-check-double-line"></i> Premium Megastructures Inc. (PMI)</li>
-									<li><i class="ri-check-double-line"></i> Megaship Builders Inc. </li>
-									<li><i class="ri-check-double-line"></i> Ormoc Macmercury Hardware </li>
-									<li><i class="ri-check-double-line"></i> Villa Theresa Subdivision </li>
-									<li><i class="ri-check-double-line"></i> Badminton City </li>
-									<li><i class="ri-check-double-line"></i> Tempura House </li>
-								</ul>
+
+
+								<!-- <ul class="affiliate_companies">
+									<li><i class="ri-check-double-line"></i> Octagon Concrete Solutions (OCS) <img src="{{ asset('assets/img/affiliates/ocs.jfif') }}" alt=""></li>
+									<li><i class="ri-check-double-line"></i> Premium Megastructures Inc. (PMI) <img src="{{ asset('assets/img/affiliates/teresa.jpg') }}" alt=""></li>
+									<li><i class="ri-check-double-line"></i> Megaship Builders Inc. <img src="{{ asset('assets/img/affiliates/megaship.png') }}" alt=""></li>
+									<li><i class="ri-check-double-line"></i> Ormoc Macmercury Hardware <img src="{{ asset('assets/img/affiliates/omh.jfif') }}" alt=""></li>
+									<li><i class="ri-check-double-line"></i> Villa Theresa Subdivision <img src="{{ asset('assets/img/affiliates/teresa.jpg') }}" alt=""></li>
+									<li><i class="ri-check-double-line"></i> Badminton City <img src="{{ asset('assets/img/affiliates/bc.png') }}" alt=""></li>
+									<li><i class="ri-check-double-line"></i> Tempura House <img src="{{ asset('assets/img/affiliates/ts.jfif') }}" alt=""></li>
+								</ul> -->
+
+								<div class="affiliate_companies ">
+									<div class="affiliates">
+									<img src="{{ asset('assets/img/affiliates/ocs.jfif') }}" alt="" class="logo">
+									<h4 >Octagon Concrete Solutions (OCS)</h4>
+									</div>
+									<div class="affiliates">
+									<img src="{{ asset('assets/img/affiliates/pmi.png') }}" alt="" class="logo">
+									<h4  >Premium Megastructures Inc. (PMI)</h4>
+									</div>
+									<div class="affiliates">
+									<img src="{{ asset('assets/img/affiliates/megaship.png') }}" alt=""class="logo">
+									<h4  >Megaship Builders Inc.</h4>
+									</div>
+									<div class="affiliates">
+									<img src="{{ asset('assets/img/affiliates/omh.jfif') }}" alt=""class="logo">
+									<h4  >Ormoc Macmercury Hardware</h4>
+									</div>
+									<div class="affiliates">
+									<img src="{{ asset('assets/img/affiliates/teresa.jpg') }}" alt=""class="logo">
+									<h4  >Villa Theresa Subdivision</h4>
+									</div>
+									<div class="affiliates">
+									<img src="{{ asset('assets/img/affiliates/bc.png') }}" alt=""class="logo">
+									<h4  >Badminton City</h4>
+									</div>
+									<div class="affiliates">
+									<img src="{{ asset('assets/img/affiliates/ts.jfif') }}" alt=""class="logo">
+									<h4  >Tempura House</h4>
+									</div>
+								</div>
 								{{-- <p>
                   Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
                   velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
                   culpa qui officia deserunt mollit anim id est laborum
                 </p> --}}
 							</div>
-							<div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
+							<!-- <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
 								<img src="{{ asset('assets/img/partners/affiliate.jpg') }}" alt="" class="img-fluid">
-							</div>
+							</div> -->
 						</div>
 					</div>
 					<div class="tab-pane" id="tab-2">
@@ -211,7 +290,7 @@
                   magna aliqua.
                 </p> --}}
 								<ul>
-									<li><i class="ri-check-double-line"></i> Allied Bank</li>
+									<li><i class="ri-check-double-line"></i> Allied Bank </li>
 									<li><i class="ri-check-double-line"></i> Metrobank</li>
 									<li><i class="ri-check-double-line"></i> Land Bank of the Philippines</li>
 									<li><i class="ri-check-double-line"></i> China Bank</li>
@@ -353,244 +432,224 @@
 					<div class="col-lg-12 d-flex justify-content-center">
 						<ul id="portfolio-flters">
 							<li data-filter="*" class="filter-active">All</li>
-							<li data-filter=".filter-bcda">BCDA Tarlac</li>
-							<li data-filter=".filter-genNakar">General Nakar</li>
-							<li data-filter=".filter-ibinganDam">Ibingan Dam</li>
-							<li data-filter=".filter-manilaBay">Manila Bay</li>
-							<li data-filter=".filter-tayabas">Tayabas</li>
+							<li data-filter=".filter-completed">COMPLETED</li>
+							<li data-filter=".filter-ongoing">ONGOING</li>
 						</ul>
 					</div>
 				</div>
 
+
+				<div class="projCon">
+				<div class="sub-category">
+				<div class="row" data-aos="fade-up" data-aos-delay="100">
+					<div class="col-lg-12 d-flex justify-content-center">
+						<ul id="sub-portfolio-flters">
+							<li data-filter="*" class="filter-active">All</li>
+							<li data-filter=".filter-port">PORTS</li>
+							<li data-filter=".filter-road">ROADS</li>
+							<li data-filter=".filter-building">BUILDINGS</li>
+							<li data-filter=".filter-bridge">BRIDGES</li>
+						</ul>
+					</div>
+				</div>
+				</div>
+				
+
+				
+				<div class="gallery">
 				<div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-					<div class="col-lg-4 col-md-6 portfolio-item filter-bcda">
+					<div class="col-lg-4 col-md-6 portfolio-item filter-ongoing filter-port">
 						<div class="portfolio-wrap">
-							<img src="{{ asset('assets/img/portfolio/BCDA/bcda-1.jpg') }}" class="img-fluid img-responsive " alt="">
+							<img src="{{ asset('assets/img/portfolio/Port/ports1.jpg') }}" class="img-fluid img-responsive " alt="">
 							<div class="portfolio-info">
-								<h4>BCDA Tarlac</h4>
-								<p>BCDA</p>
+								<h4>PORT</h4>
+								<p>Description</p>
 								<div class="portfolio-links">
-									<a href="{{ asset('assets/img/portfolio/BCDA/bcda-1.jpg') }}" data-gallery="portfolioGallery"
-										class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-									<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+									<a href="{{ asset('assets/img/portfolio/Port/ports1.jpg') }}" data-gallery="portfolioGallery"
+										class="portfolio-lightbox"><i class="bx bx-show"></i></a>
+									<!-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> -->
 								</div>
 							</div>
 						</div>
 					</div>
 
 
-					<div class="col-lg-4 col-md-6 portfolio-item filter-genNakar">
+					<div class="col-lg-4 col-md-6 portfolio-item filter-ongoing filter-port">
 						<div class="portfolio-wrap">
-							<img src="{{ asset('assets/img/portfolio/GenNakar/GenNakar-1.jpg') }}" class="img-fluid img-responsive " alt="">
+							<img src="{{ asset('assets/img/portfolio/Port/ports2.jpg') }}" class="img-fluid img-responsive " alt="">
 							<div class="portfolio-info">
-								<h4>General Nakar</h4>
-								<p>General Nakar</p>
+								<h4>PORT</h4>
+								<p>Description</p>
 								<div class="portfolio-links">
-									<a href="{{ asset('assets/img/portfolio/GenNakar/GenNakar-1.jpg') }}" data-gallery="portfolioGallery"
-										class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-									<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+									<a href="{{ asset('assets/img/portfolio/Port/ports2.jpg') }}" data-gallery="portfolioGallery"
+										class="portfolio-lightbox" ><i class="bx bx-show"></i></a>
+									<!-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> -->
 								</div>
 							</div>
 						</div>
 					</div>
 
-					<div class="col-lg-4 col-md-6 portfolio-item filter-bcda">
+					<div class="col-lg-4 col-md-6 portfolio-item filter-completed filter-port">
 						<div class="portfolio-wrap">
-							<img src="{{ asset('assets/img/portfolio/BCDA/bcda-2.jpg') }}" class="img-fluid img-responsive " alt="">
+							<img src="{{ asset('assets/img/portfolio/Port/ports3.jpg') }}" class="img-fluid img-responsive " alt="">
 							<div class="portfolio-info">
-								<h4>BCDA Tarlac</h4>
-								<p>BCDA</p>
+								<h4>PORT</h4>
+								<p>Description</p>
 								<div class="portfolio-links">
-									<a href="{{ asset('assets/img/portfolio/BCDA/bcda-2.jpg') }}" data-gallery="portfolioGallery"
-										class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-									<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+									<a href="{{ asset('assets/img/portfolio/Port/ports3.jpg') }}" data-gallery="portfolioGallery"
+										class="portfolio-lightbox" ><i class="bx bx-show"></i></a>
+									<!-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> -->
 								</div>
 							</div>
 						</div>
 					</div>
 
-					<div class="col-lg-4 col-md-6 portfolio-item filter-genNakar">
+					<div class="col-lg-4 col-md-6 portfolio-item filter-ongoing filter-road">
 						<div class="portfolio-wrap">
-							<img src="{{ asset('assets/img/portfolio/GenNakar/GenNakar-2 copy.jpg') }}" class="img-fluid img-responsive " alt="">
+							<img src="{{ asset('assets/img/portfolio/Road/road1.jpg') }}" class="img-fluid img-responsive " alt="">
 							<div class="portfolio-info">
-								<h4>General Nakar</h4>
-								<p>General Nakar</p>
+								<h4>ROAD</h4>
+								<p>Description</p>
 								<div class="portfolio-links">
-									<a href="{{ asset('assets/img/portfolio/GenNakar/GenNakar-2 copy.jpg') }}" data-gallery="portfolioGallery"
-										class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
-									<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+									<a href="{{ asset('assets/img/portfolio/Road/road1.jpg') }}" data-gallery="portfolioGallery"
+										class="portfolio-lightbox" ><i class="bx bx-show"></i></a>
+									<!-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> -->
 								</div>
 							</div>
 						</div>
 					</div>
 					
-					<div class="col-lg-4 col-md-6 portfolio-item filter-bcda">
+					<div class="col-lg-4 col-md-6 portfolio-item filter-completed filter-road">
 						<div class="portfolio-wrap">
-							<img src="{{ asset('assets/img/portfolio/BCDA/bcda-3.jpg') }}" class="img-fluid img-responsive " alt="">
+							<img src="{{ asset('assets/img/portfolio/Road/road2.jpg') }}" class="img-fluid img-responsive " alt="">
 							<div class="portfolio-info">
-								<h4>BCDA Tarlac</h4>
-								<p>BCDA</p>
+								<h4>ROAD</h4>
+								<p>Description</p>
 								<div class="portfolio-links">
-									<a href="{{ asset('assets/img/portfolio/BCDA/bcda-3.jpg') }}" data-gallery="portfolioGallery"
-										class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-									<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+									<a href="{{ asset('assets/img/portfolio/Road/road2.jpg') }}" data-gallery="portfolioGallery"
+										class="portfolio-lightbox" ><i class="bx bx-show"></i></a>
+									<!-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> -->
 								</div>
 							</div>
 						</div>
 					</div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-genNakar">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-completed filter-road">
 						<div class="portfolio-wrap">
-							<img src="{{ asset('assets/img/portfolio/GenNakar/GenNakar-3.jpg') }}" class="img-fluid img-responsive" alt="">
+							<img src="{{ asset('assets/img/portfolio/Road/road3.jpg') }}" class="img-fluid img-responsive" alt="">
 							<div class="portfolio-info">
-								<h4>General Nakar</h4>
-								<p>General Nakar</p>
+								<h4>Road</h4>
+								<p>Description</p>
 								<div class="portfolio-links">
-									<a href="{{ asset('assets/img/portfolio/GenNakar/GenNakar-3.jpg') }}" data-gallery="portfolioGallery"
-										class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-									<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+									<a href="{{ asset('assets/img/portfolio/Road/road3.jpg') }}" data-gallery="portfolioGallery"
+										class="portfolio-lightbox"><i class="bx bx-show"></i></a>
+									<!-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> -->
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-4 col-md-6 portfolio-item filter-ibinganDam">
+			
+					<div class="col-lg-4 col-md-6 portfolio-item filter-ongoing filter-bridge">
 						<div class="portfolio-wrap">
-							<img src="{{ asset('assets/img/portfolio/IbinganDam/IbinganDam-1.jpg') }}" class="img-fluid img-responsive " alt="">
+							<img src="{{ asset('assets/img/portfolio/Bridge/bridges1.jpg') }}" class="img-fluid img-responsive " alt="">
 							<div class="portfolio-info">
-								<h4>Ibingan Dam</h4>
-								<p>Ibingan Dam</p>
+								<h4>Bridge</h4>
+								<p>Description</p>
 								<div class="portfolio-links">
-									<a href="{{ asset('assets/img/portfolio/IbinganDam/IbinganDam-1.jpg') }}" data-gallery="portfolioGallery"
-										class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-									<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 portfolio-item filter-ibinganDam">
-						<div class="portfolio-wrap">
-							<img src="{{ asset('assets/img/portfolio/IbinganDam/IbinganDam-2.jpg') }}" class="img-fluid img-responsive" alt="">
-							<div class="portfolio-info">
-								<h4>Ibingan Dam</h4>
-								<p>Ibingan Dam</p>
-								<div class="portfolio-links">
-									<a href="{{ asset('assets/img/portfolio/IbinganDam/IbinganDam-2.jpg') }}" data-gallery="portfolioGallery"
-										class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
-									<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-ibinganDam">
-						<div class="portfolio-wrap">
-							<img src="{{ asset('assets/img/portfolio/IbinganDam/IbinganDam-3.jpg') }}" style="min-height:100%;" class="img-fluid img-responsive"  alt="">
-							<div class="portfolio-info">
-								<h4>Ibingan Dam</h4>
-								<p>Ibingan Dam</p>
-								<div class="portfolio-links">
-									<a href="{{ asset('assets/img/portfolio/IbinganDam/IbinganDam-3.jpg') }}" data-gallery="portfolioGallery"
-										class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-									<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+									<a href="{{ asset('assets/img/portfolio/Bridge/bridges1.jpg') }}" data-gallery="portfolioGallery"
+										class="portfolio-lightbox" ><i class="bx bx-show"></i></a>
+									<!-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> -->
 								</div>
 							</div>
 						</div>
 					</div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-manilaBay">
+					<div class="col-lg-4 col-md-6 portfolio-item filter-ongoing filter-bridge">
 						<div class="portfolio-wrap">
-							<img src="{{ asset('assets/img/portfolio/ManilaBay/manila-bay-1.jpg') }}" class="img-fluid img-responsive"  alt="">
+							<img src="{{ asset('assets/img/portfolio/Bridge/bridge2.jpg') }}" class="img-fluid img-responsive " alt="">
 							<div class="portfolio-info">
-								<h4>Manila Bay</h4>
-								<p>Manila Bay</p>
+								<h4>Bridge</h4>
+								<p>Description</p>
 								<div class="portfolio-links">
-									<a href="{{ asset('assets/img/portfolio/ManilaBay/manila-bay-1.jpg') }}" data-gallery="portfolioGallery"
-										class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-									<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+									<a href="{{ asset('assets/img/portfolio/Bridge/bridge2.jpg') }}" data-gallery="portfolioGallery"
+										class="portfolio-lightbox" ><i class="bx bx-show"></i></a>
+									<!-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> -->
 								</div>
 							</div>
 						</div>
 					</div>
-           <div class="col-lg-4 col-md-6 portfolio-item filter-tayabas">
+        
+					<div class="col-lg-4 col-md-6 portfolio-item filter-ongoing filter-bridge">
 						<div class="portfolio-wrap">
-							<img src="{{ asset('assets/img/portfolio/Tayabas/tayabas-2.jpg')}}" class="img-fluid img-responsive"  alt="">
+							<img src="{{ asset('assets/img/portfolio/Bridge/bridge3.jpg') }}" class="img-fluid img-responsive " alt="">
 							<div class="portfolio-info">
-								<h4>Tayabas</h4>
-								<p>Tayabas</p>
+								<h4>Bridge</h4>
+								<p>Description</p>
 								<div class="portfolio-links">
-									<a href="{{ asset('assets/img/portfolio/Tayabas/tayabas-2.jpg')}}" data-gallery="portfolioGallery"
-										class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-									<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-manilaBay">
-						<div class="portfolio-wrap">
-							<img src="{{ asset('assets/img/portfolio/ManilaBay/manila-bay-2.jpg') }}" class="img-fluid img-responsive"  alt="">
-							<div class="portfolio-info">
-								<h4>Manila Bay</h4>
-								<p>Manila Bay</p>
-								<div class="portfolio-links">
-									<a href="{{ asset('assets/img/portfolio/ManilaBay/manila-bay-2.jpg') }}" data-gallery="portfolioGallery"
-										class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-									<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-tayabas">
-						<div class="portfolio-wrap">
-							<img src="{{ asset('assets/img/portfolio/Tayabas/tayabas-1.jpg') }}" class="img-fluid img-responsive"  alt="">
-							<div class="portfolio-info">
-								<h4>Tayabas</h4>
-								<p>Tayabas</p>
-								<div class="portfolio-links">
-									<a href="{{ asset('assets/img/portfolio/Tayabas/tayabas-1.jpg')}}" data-gallery="portfolioGallery"
-										class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-									<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+									<a href="{{ asset('assets/img/portfolio/Bridge/bridge3.jpg') }}" data-gallery="portfolioGallery"
+										class="portfolio-lightbox" ><i class="bx bx-show"></i></a>
+									<!-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> -->
 								</div>
 							</div>
 						</div>
 					</div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-manilaBay">
+					<div class="col-lg-4 col-md-6 portfolio-item filter-completed filter-building">
 						<div class="portfolio-wrap">
-							<img src="{{ asset('assets/img/portfolio/ManilaBay/manila-bay-3.jpg') }}" class="img-fluid img-responsive"  alt="">
+							<img src="{{ asset('assets/img/portfolio/Building/building1.jpg') }}" class="img-fluid img-responsive " alt="">
 							<div class="portfolio-info">
-								<h4>Manila Bay</h4>
-								<p>Manila Bay</p>
+								<h4>Building</h4>
+								<p>Description</p>
 								<div class="portfolio-links">
-									<a href="{{ asset('assets/img/portfolio/ManilaBay/manila-bay-3.jpg') }}" data-gallery="portfolioGallery"
-										class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-									<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+									<a href="{{ asset('assets/img/portfolio/Building/building1.jpg') }}" data-gallery="portfolioGallery"
+										class="portfolio-lightbox" ><i class="bx bx-show"></i></a>
+									<!-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> -->
 								</div>
 							</div>
 						</div>
 					</div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-tayabas">
+
+					<div class="col-lg-4 col-md-6 portfolio-item filter-completed filter-building">
 						<div class="portfolio-wrap">
-							<img src="{{ asset('assets/img/portfolio/Tayabas/tayabas-3.jpg')}}" class="img-fluid img-responsive"  alt="">
+							<img src="{{ asset('assets/img/portfolio/Building/building2.jpg') }}" class="img-fluid img-responsive " alt="">
 							<div class="portfolio-info">
-								<h4>Tayabas</h4>
-								<p>Tayabas</p>
+								<h4>Building</h4>
+								<p>Description</p>
 								<div class="portfolio-links">
-									<a href="{{ asset('assets/img/portfolio/Tayabas/tayabas-3.jpg') }}" data-gallery="portfolioGallery"
-										class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-									<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+									<a href="{{ asset('assets/img/portfolio/Building/building2.jpg') }}" data-gallery="portfolioGallery"
+										class="portfolio-lightbox" ><i class="bx bx-show"></i></a>
+									<!-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> -->
 								</div>
 							</div>
 						</div>
 					</div>
+
+					<div class="col-lg-4 col-md-6 portfolio-item filter-completed filter-building">
+						<div class="portfolio-wrap">
+							<img src="{{ asset('assets/img/portfolio/Building/building3.jpg') }}" class="img-fluid img-responsive " alt="">
+							<div class="portfolio-info">
+								<h4>Building</h4>
+								<p>Description</p>
+								<div class="portfolio-links">
+									<a href="{{ asset('assets/img/portfolio/Building/building3.jpg') }}" data-gallery="portfolioGallery"
+										class="portfolio-lightbox" ><i class="bx bx-show"></i></a>
+									<!-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> -->
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				</div>
+				
 				</div>
 			</div>
 		</section><!-- End Portfolio Section -->
 
-		<!-- ======= Testimonials Section ======= -->
+		<!-- ======= Recognitions and Credentials Section ======= -->
 		<section id="testimonials" class="testimonials">
 			<div class="container" data-aos="fade-up">
 				<div class="section-title">
-					<h2>Testimonials</h2>
+					<h2>RECOGNITIONS AND CREDENTIALS</h2>
 					{{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur
 						velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> --}}
 				</div>
@@ -601,15 +660,15 @@
 						<div class="swiper-slide">
 							<div class="testimonial-wrap">
 								<div class="testimonial-item">
-									<img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-									<h3>Saul Goodman</h3>
+									<img src="assets/img/Recognitions/award2.jpg" class="testimonial-img" alt="">
+									<!-- <h3>Saul Goodman</h3>
 									<h4>Ceo &amp; Founder</h4>
 									<p>
 										<i class="bx bxs-quote-alt-left quote-icon-left"></i>
 										Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam,
 										ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
 										<i class="bx bxs-quote-alt-right quote-icon-right"></i>
-									</p>
+									</p> -->
 								</div>
 							</div>
 						</div><!-- End testimonial item -->
@@ -617,63 +676,15 @@
 						<div class="swiper-slide">
 							<div class="testimonial-wrap">
 								<div class="testimonial-item">
-									<img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-									<h3>Sara Wilsson</h3>
-									<h4>Designer</h4>
+									<img src="assets/img/Recognitions/cert1.webp" class="testimonial-img" alt="">
+									<!-- <h3>Saul Goodman</h3>
+									<h4>Ceo &amp; Founder</h4>
 									<p>
 										<i class="bx bxs-quote-alt-left quote-icon-left"></i>
-										Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum
-										velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+										Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam,
+										ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
 										<i class="bx bxs-quote-alt-right quote-icon-right"></i>
-									</p>
-								</div>
-							</div>
-						</div><!-- End testimonial item -->
-
-						<div class="swiper-slide">
-							<div class="testimonial-wrap">
-								<div class="testimonial-item">
-									<img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-									<h3>Jena Karlis</h3>
-									<h4>Store Owner</h4>
-									<p>
-										<i class="bx bxs-quote-alt-left quote-icon-left"></i>
-										Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore
-										quem eram duis noster aute amet eram fore quis sint minim.
-										<i class="bx bxs-quote-alt-right quote-icon-right"></i>
-									</p>
-								</div>
-							</div>
-						</div><!-- End testimonial item -->
-
-						<div class="swiper-slide">
-							<div class="testimonial-wrap">
-								<div class="testimonial-item">
-									<img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-									<h3>Matt Brandon</h3>
-									<h4>Freelancer</h4>
-									<p>
-										<i class="bx bxs-quote-alt-left quote-icon-left"></i>
-										Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor
-										enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-										<i class="bx bxs-quote-alt-right quote-icon-right"></i>
-									</p>
-								</div>
-							</div>
-						</div><!-- End testimonial item -->
-
-						<div class="swiper-slide">
-							<div class="testimonial-wrap">
-								<div class="testimonial-item">
-									<img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-									<h3>John Larson</h3>
-									<h4>Entrepreneur</h4>
-									<p>
-										<i class="bx bxs-quote-alt-left quote-icon-left"></i>
-										Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore
-										duis sunt culpa nulla illum cillum fugiat esse veniam culpa fore nisi cillum quid.
-										<i class="bx bxs-quote-alt-right quote-icon-right"></i>
-									</p>
+									</p> -->
 								</div>
 							</div>
 						</div><!-- End testimonial item -->
@@ -683,7 +694,7 @@
 				</div>
 
 			</div>
-		</section><!-- End Testimonials Section -->
+		</section><!-- End Recognitions and Credentials Section -->
 
 		<!-- ======= Pricing Section ======= -->
 		{{-- <section id="pricing" class="pricing section-bg">
@@ -853,82 +864,23 @@
 
 				<div class="row">
 
-					<div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+					<div class="d-flex">
 						<div class="member" data-aos="fade-up" data-aos-delay="100">
 							<div class="member-img">
-								<img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
-								<div class="social">
-									<a href=""><i class="bi bi-twitter"></i></a>
-									<a href=""><i class="bi bi-facebook"></i></a>
-									<a href=""><i class="bi bi-instagram"></i></a>
-									<a href=""><i class="bi bi-linkedin"></i></a>
-								</div>
+							<img src="{{ asset('assets/img/Hr/banner.png') }}" alt="" class="banner">
+							<div class="col-xl-6 member-info">
+								<h2>WE ARE HIRING</h2>
+								<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi atque voluptates sit. Atque necessitatibus voluptatibus ducimus quae quos aperiam, nihil inventore, laborum fugiat nostrum suscipit autem id architecto quam voluptatum.</span>
+								<h4><a href="{{ url('hiring') }}" class="hiring-btn"><span>Learn More</span> <i class="bx bx-chevron-right"></i></a></h4>
 							</div>
-							<div class="member-info">
-								<h4>Walter White</h4>
-								<span>Chief Executive Officer</span>
 							</div>
 						</div>
 					</div>
-
-					<div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-						<div class="member" data-aos="fade-up" data-aos-delay="200">
-							<div class="member-img">
-								<img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
-								<div class="social">
-									<a href=""><i class="bi bi-twitter"></i></a>
-									<a href=""><i class="bi bi-facebook"></i></a>
-									<a href=""><i class="bi bi-instagram"></i></a>
-									<a href=""><i class="bi bi-linkedin"></i></a>
-								</div>
-							</div>
-							<div class="member-info">
-								<h4>Sarah Jhonson</h4>
-								<span>Product Manager</span>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-						<div class="member" data-aos="fade-up" data-aos-delay="300">
-							<div class="member-img">
-								<img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
-								<div class="social">
-									<a href=""><i class="bi bi-twitter"></i></a>
-									<a href=""><i class="bi bi-facebook"></i></a>
-									<a href=""><i class="bi bi-instagram"></i></a>
-									<a href=""><i class="bi bi-linkedin"></i></a>
-								</div>
-							</div>
-							<div class="member-info">
-								<h4>William Anderson</h4>
-								<span>CTO</span>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-						<div class="member" data-aos="fade-up" data-aos-delay="400">
-							<div class="member-img">
-								<img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-								<div class="social">
-									<a href=""><i class="bi bi-twitter"></i></a>
-									<a href=""><i class="bi bi-facebook"></i></a>
-									<a href=""><i class="bi bi-instagram"></i></a>
-									<a href=""><i class="bi bi-linkedin"></i></a>
-								</div>
-							</div>
-							<div class="member-info">
-								<h4>Amanda Jepson</h4>
-								<span>Accountant</span>
-							</div>
-						</div>
-					</div>
-
 				</div>
 
 			</div>
-		</section><!-- End Team Section -->
+		</section>
+		<!-- End Team Section -->
 
 		<!-- ======= Contact Section ======= -->
 		<section id="contact" class="contact">

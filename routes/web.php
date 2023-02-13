@@ -29,6 +29,29 @@ Route::get('about-us', function () {
         )
     );
 });
+Route::get('hiring',function(){
+    return view ('inner_pages.hiring',
+    array(
+        'header' => 'hiring',
+    )
+);
+});
+Route::get('job-info',function(){
+    return view ('inner_pages.job-info',
+    array(
+        'header' => 'job-info',
+    )
+);
+});
+
+Route::get('admin/home',function(){
+    return view ('admin.home',
+    array(
+        'header' => 'admin/home',
+    )
+);
+});
+
 
 Auth::routes();
 

@@ -1,0 +1,15 @@
+#hiring{
+  width: 100vw;
+}
+
+#hiring .inner-page .filter{
+  width: 20%;
+}
+
+#hiring .inner-page .list{
+  width: 70%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
